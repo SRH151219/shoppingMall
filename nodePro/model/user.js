@@ -17,7 +17,8 @@ const addUser = (userInfo,cb)=>{
     const user = new User({
         userName : userInfo.userName,
         userPwd:userInfo.userPwd,
-        userSex:userInfo.userSex
+        userSex:userInfo.userSex,
+        userImg:userInfo.userImg
     })
     user.save().then(()=>{
         cb()
@@ -31,11 +32,26 @@ const findUser = (userInfo,cb)=>{
     })
 }
 
-// 
+// 修改
+const modifyUserInfo = (userInfo,cb)=>{
+    User.update({
+        userName:userInfo.userOldName
+    },{
+        $set:{
+            userName:userInfo.userName,
+            userSex:userInfo.userSex,
+            userPwd:userInfo.userNewPwd2,
+            userImg:userInfo.headImgUrl
+        }
+    }).then((data)=>{
+        cb(data)
+    })
+}
 
 
 //导出
 module.exports = {
     addUser,
-    findUser
+    findUser,
+    modifyUserInfo
 }

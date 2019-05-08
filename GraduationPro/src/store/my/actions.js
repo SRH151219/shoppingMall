@@ -11,7 +11,7 @@ export default{
                 userName:params
             }
         }).then((data)=>{
-            // console.log(data);
+            console.log(data);
             commit("getUserInfo",data.data.data)
         })
     }

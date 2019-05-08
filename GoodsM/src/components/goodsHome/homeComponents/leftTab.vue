@@ -21,11 +21,9 @@
                             <router-link to="/addGoods">
                                 <el-menu-item index="2-1">添加商品</el-menu-item>
                             </router-link>
-
                             <router-link to="/findGoods">
                                 <el-menu-item index="2-2">查看商品</el-menu-item>
                             </router-link>
-
                         </el-menu-item-group>
 
                         <!-- 三级导航 -->
@@ -58,11 +56,14 @@
                         <template slot="title">
                             <i class="el-icon-location"></i>
                             <!-- 一级导航 -->
-                            <span>销售盈利分析</span>
+                                <span>销售盈利分析</span>
                         </template>
 
                         <el-menu-item-group>
-                            <el-menu-item index="5-1">销售状况</el-menu-item>
+                            <router-link to="/saleStatus">
+                                <el-menu-item index="5-1">销售状况</el-menu-item>
+                            </router-link>
+
                             <el-menu-item index="5-2">盈利状况</el-menu-item>
                         </el-menu-item-group>
                     </el-submenu>
@@ -90,7 +91,6 @@ export default {
 #leftTab {
   float: left;
   width: 200px;
-  /* height: 200px; */
   background: lightblue;
 }
 </style>

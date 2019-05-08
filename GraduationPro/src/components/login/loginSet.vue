@@ -6,25 +6,20 @@
     </div>
     <div class="con">
       <p>
-        <!-- <label ></label> -->
         <span class="sp">头像</span>
-        <span class="go iconfont iconqianjin
-"></span>
-        <b class="cen"></b>
+        <b class="cen">
+          <img :src="userInfo.userImg" alt="">
+        </b>
 
       </p>
       <p>
         <span class="sp">昵称</span>
-        <span class="go iconfont iconqianjin
-"></span>
-        <b class="cen">12345</b>
+        <b class="cen">{{userInfo.userName}}</b>
 
       </p>
       <p>
         <span class="sp">性别</span>
-        <span class="go iconfont iconqianjin
-"></span>
-        <b class="cen">nv</b>
+        <b class="cen">{{userInfo.userSex}}</b>
 
       </p>
 
@@ -33,16 +28,12 @@
     <div class="con2">
       <p>
         <span class="sp">登录密码</span>
-        <span class="go iconfont iconqianjin
-"></span>
-        <b class="cen">立即修改</b>
+        <b class="cen"></b>
 
       </p>
 
       <p>
         <span></span>
-        <span class="go iconfont iconqianjin
-"></span>
         <b class="sp">修改地址</b>
 
       </p>
@@ -59,6 +50,7 @@
 
 <script>
 import Cookies from "js-cookie";
+import Vuex from "vuex";
 export default {
   data() {
     return {
@@ -91,10 +83,18 @@ export default {
           //点击取消执行
         });
     },
-    //点击修改ziliao
-    handleModify(){
-      this.$router.push("/modifyInfo")
+    //点击修改资料
+    handleModify() {
+      this.$router.push("/modifyInfo");
     }
+  },
+  computed: {
+    ...Vuex.mapState({
+      userInfo: state => state.my.userInfo
+    })
+  },
+  mounted(){
+    // console.log(this.userInfo);
   }
 };
 </script>
@@ -174,23 +174,27 @@ export default {
   /* background: yellow; */
 }
 .cen {
-  width: 1rem;
+  width: 2rem;
 
   height: 0.5rem;
   line-height: 0.5rem;
-  text-align: right;
+  text-align: center;
   font-size: 16px;
   float: right;
-  background: #ccc;
+}
+.cen img {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
-.modify{
+.modify {
   margin-bottom: 10px;
-
 }
-.modify button{
+.modify button {
   width: 100%;
-  height: .5rem;
+  height: 0.5rem;
   font-size: 16px;
   border: 0;
   border-radius: 4px;

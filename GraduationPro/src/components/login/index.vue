@@ -28,6 +28,7 @@
 <script>
 import axios from "axios";
 import Vuex from "vuex";
+import Cookies from "js-cookie";
 export default {
   data() {
     return {
@@ -84,15 +85,16 @@ export default {
         }).then(data => {
           if (data.data.status == 1) {
             //如果登录成功，将用户名放到仓库
-            this.getUserInfo(this.userName);
-            //
+            // this.getUserInfo(this.userName);
+            //如果登录成功，将用户名放到cookies中
+            Cookies.set("userName",this.userName);
+            //登陆成功后，路径跳转
             this.$router.push("/mall");
           } else if (data.data.status == 2) {
             this.pwdWarn = data.data.info;
           } else if (data.data.status == 3) {
             this.nameWarn = data.data.info;
           }
-          // console.log(data);
         });
       }
     },
@@ -101,10 +103,10 @@ export default {
       this.$router.push("/register");
     },
     //my仓库
-    ...Vuex.mapActions({
-      //保存用户信息
-      getUserInfo:"my/getUserInfo"
-    })
+    // ...Vuex.mapActions({
+    //   //保存用户信息
+    //   getUserInfo:"my/getUserInfo"
+    // })
 
   },
   

@@ -1,9 +1,5 @@
 <template>
   <div id="header">
-    <div class="head">
-      <div class="back iconfont iconIcon-fanhui" @click="handleGo"></div>
-      <p>购物车</p>
-    </div>
     <div class="top">
       <p>
         <label for="selectAll"><input type="checkbox" id="selectAll" :checked="allSelected" @change="change()">全选</label>
@@ -38,10 +34,7 @@ export default {
     ...Vuex.mapActions({
       hangleAllChange: "goodsCar/hangleAllChange"
     }),
-    //返回
-    handleGo() {
-      this.$router.back();
-    },
+    
     //全选按钮发生变化
     change() {
       // console.log(1);
@@ -55,29 +48,7 @@ export default {
 #header {
   /* margin-bottom: 10px; */
 }
-.head {
-  width: 100%;
-  height: 0.48rem;
-  background: #fff;
-}
-.head p {
-  width: 100%;
-  height: 0.48rem;
-  line-height: 0.48rem;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bolder;
-}
-.head div {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 0.5rem;
-  height: 0.5rem;
-  line-height: 0.5rem;
-  text-align: center;
-  font-size: 32px;
-}
+
 /* 顶部全选 */
 .top {
   font-size: 16px;

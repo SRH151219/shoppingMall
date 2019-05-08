@@ -1,13 +1,15 @@
 <template>
   <div id="index">
-    <header-com></header-com>
+    <top-com></top-com>
+    <header-com v-show="headerShow"></header-com>
     <center-com></center-com>
-    <footer-com></footer-com>
+    <footer-com v-show="footerShow"></footer-com>
   </div>
 
 </template>
 
 <script>
+import Top from "./top";
 import Header from "./header";
 import Center from "./center";
 import Footer from "./footer";
@@ -15,29 +17,38 @@ import Cookies from "js-cookie";
 import Vuex from "vuex";
 
 export default {
-  components:{
-    "header-com":Header,
-    "center-com":Center,
-    "footer-com":Footer
+  components: {
+    "top-com": Top,
+    "header-com": Header,
+    "center-com": Center,
+    "footer-com": Footer
   },
-  data(){
-    return{}
+  data() {
+    return {
+      headerShow: true,
+      footerShow: true,
+    };
   },
-   created() {
+  created() {
     //获取cookie中goodsCar的值
     var goods = Cookies.get("goodsCar");
     this.getCookiesGoods(goods);
   },
-  
-  methods:{
+  methods: {
     ...Vuex.mapActions({
       //获取商品
-      "getCookiesGoods":"goodsCar/getCookiesGoods"
+      getCookiesGoods: "goodsCar/getCookiesGoods"
     })
-
   },
-  destroyed() {
+  computed: {
+    ...Vuex.mapState({
+      allSelected: state => state.goodsCar.allSelected
+    }),
+    ...Vuex.mapGetters({
+      goodsCount: "goodsCar/goodsCount"
+    })
   },
+  destroyed() {}
 };
 </script>
 
@@ -97,23 +108,23 @@ export default {
   justify-content: space-between;
   background: #fff;
 }
-.bottom .left{
+.bottom .left {
   /* flex: 1; */
 }
-.bottom .right{
+.bottom .right {
   /* flex: 1; */
   display: flex;
   /* background: orange; */
   align-items: center;
 }
-.bottom .right .count{
+.bottom .right .count {
   width: 1rem;
-  height: .4rem;
-  line-height: .4rem;
+  height: 0.4rem;
+  line-height: 0.4rem;
   text-align: center;
   background: #c33;
   border-radius: 30px;
-  color: #fff;  
+  color: #fff;
   margin-left: 8px;
 }
 </style>

@@ -1,17 +1,14 @@
 <template>
-    <div id="gooter">
+    <div id="footer">
         <div class="bottom">
             <p class="left">
                 <label for="selectAll"><input type="checkbox" id="selectAll" :checked="allSelected" @change="change()">全选</label>
             </p>
             <div class="right">
-             
                 <p class="count">结算
                     <span>({{goodsCount.goodsNumPrice}})</span>
-
                 </p>
             </div>
-
         </div>
     </div>
 </template>
@@ -20,7 +17,9 @@
 import Vuex from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      footerFlag:true
+    };
   },
   computed: {
     ...Vuex.mapState({

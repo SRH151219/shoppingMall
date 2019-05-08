@@ -36,7 +36,7 @@ let router = new Router({
   routes: [{
       path: "/",
       // redirect:"/mall"
-      redirect: "/goodsDetails"
+      redirect: "/logo"
 
     },
     {

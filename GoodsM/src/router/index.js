@@ -7,6 +7,8 @@ import Home from "@/components/goodsHome/index"
 import AddGoods from "../components/content/addGoods";
 //引入 添加商品 组件
 import FindGoods from "../components/content/findGoods";
+//销售状况
+import SaleStatus from "../components/content/saleSatus"
 
 Vue.use(Router)
 
@@ -27,6 +29,11 @@ export default new Router({
           path:"/findGoods",
           name:"findGoods",
           component:FindGoods
+        },
+        {
+          path:"/saleStatus",
+          name:"saleStatus",
+          component:SaleStatus
         }
       ]
       

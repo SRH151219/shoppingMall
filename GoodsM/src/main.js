@@ -9,6 +9,12 @@ import "../static/commonCss/pc-public.css";
 import ElementUI from "element-ui";
 //引入elementui 样式
 import "element-ui/lib/theme-chalk/index.css";
+
+// 引入echarts
+// import echarts from 'echarts'
+// Vue.prototype.$echarts = echarts 
+
+
 //将插件挂载到vue的实例上
 Vue.use(ElementUI);
 

@@ -70,9 +70,7 @@ import "../../../node_modules/swiper/dist/css/swiper.css";
 import Vuex from "vuex";
 import Cookies from "js-cookie";
 export default {
-  data() {
-    return {};
-  },
+
   created() {
     this.obverser.$emit("changeState9");
   },
@@ -104,7 +102,6 @@ export default {
       var carGoods = Cookies.get("goodsCar");
       //设置开关，用于判断商品是否已经存在,默认值为false,即商品不存在。
       var flag = false;
-
       //商品信息
       var goodsId = this.goodsDetails._id;
       var goodsImg = this.goodsDetails.goodsBigImg;
@@ -146,7 +143,6 @@ export default {
 
         //如果商品已经存在
         if (flag) {
-          console.log("存在");
           //将数组中的每一项转为字符串。
           var arr2 = arr1.map((item, index) => {
             return JSON.stringify(item);
@@ -186,6 +182,8 @@ export default {
         //文字居中
         center: true
       });
+
+      //
     }
   },
   mounted() {

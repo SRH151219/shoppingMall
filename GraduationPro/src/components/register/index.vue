@@ -72,8 +72,7 @@ export default {
         this.pwdWarn = "密码不能为空";
       } else if (this.userPwd.length < 6 || this.userPwd.length > 20) {
         this.pwdWarn = "密码长度为 6 ~ 20 个字符";
-      } else {
-        console.log("11111");
+      } else if(!reg2.test(this.userPwd)){
         this.pwdWarn = "以字母开头，只包含字母/数字/下划线";
       }
 

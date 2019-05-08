@@ -45,6 +45,7 @@ export default {
     }
 
   },
+  
   handleChangeNum(state, params) {
     switch (params.id) {
       case 1:
